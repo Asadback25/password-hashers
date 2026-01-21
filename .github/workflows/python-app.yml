@@ -31,9 +31,9 @@ jobs:
 
 
     - name: Build Docker image
-      run: docker build -t password-hash-playground .
+      run: docker build -t password-hashers .
 
     - name: Push Docker image
       run: |
-        docker tag password-hash-playground ${{ secrets.DOCKER_USERNAME }}/password-hash-playground:latest
-        docker push ${{ secrets.DOCKER_USERNAME }}/password-hash-playground:latest
+        docker tag password-hashers ${{ secrets.DOCKER_USERNAME }}/password-hashers:latest
+        docker push ${{ secrets.DOCKER_USERNAME }}/password-hashers:latest
