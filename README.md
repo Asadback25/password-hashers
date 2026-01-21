@@ -43,7 +43,7 @@ Built with **Flask**, **Argon2**, **Bcrypt**, **Passlib**, and deployable with *
 ### 1️⃣ Clone repository
 
 ```bash
-git clone https://github.com/yourusername/password-hash-playground.git
+git clone https://github.com/asadback25/password-hash-playground.git
 cd password-hash-playground
 ```
 
