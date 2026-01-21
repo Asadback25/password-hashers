@@ -1,0 +1,121 @@
+:root {
+  --bg: #020617;
+  --card: #0f111a;
+  --accent: #2563eb;
+  --text: #e5e7eb;
+  --border-error: #ef4444;
+  --border-info: #facc15;
+  --border-success: #22c55e;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.container {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 10px 20px;
+}
+
+/* Header */
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+header h1 {
+  font-size: 2rem;
+  margin-bottom: 5px;
+}
+
+header p {
+  font-size: 0.9rem;
+}
+
+/* Form */
+.form-card input,
+.form-card select,
+.form-card button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 12px;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+}
+
+button {
+  background: var(--accent);
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #1d4ed8;
+}
+
+/* Card */
+.card {
+  background: var(--card);
+  padding: 18px;
+  border-radius: 10px;
+  margin-top: 16px;
+  border-left: 5px solid var(--border-success);
+}
+
+.card.info {
+  border-left-color: var(--border-info);
+}
+
+.card.error {
+  border-left-color: var(--border-error);
+  background: #7f1d1d;
+}
+
+/* Grid for analytics & hash */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+pre {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* List styling for hasher info */
+.info ul {
+  padding-left: 18px;
+  margin: 0;
+}
+
+.info li {
+  margin-bottom: 6px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 500px) {
+  header h1 {
+    font-size: 1.5rem;
+  }
+}
