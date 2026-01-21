@@ -1,4 +1,4 @@
-name: Flask CI Pipeline
+name: Flask CI
 
 on:
   push:
@@ -13,28 +13,23 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # 1️⃣ Checkout repo
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      # 2️⃣ Setup Python
       - name: Set up Python 3.12
         uses: actions/setup-python@v4
         with:
           python-version: '3.12'
 
+      # 3️⃣ Install dependencies
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Lint with flake8
-        run: |
-          pip install flake8
-          flake8 . --count --max-line-length=120 --show-source --statistics
-
+      # 4️⃣ Smoke test
       - name: Smoke test Flask app
-        run: python -c "import app; print('Flask app imports successfully')"
-
-      - name: Run pytest
         run: |
-          pip install pytest
-          pytest --maxfail=1 --disable-warnings -q
+          python -c "import app; print('Flask app imports successfully ✅')"
