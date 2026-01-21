@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Password Hash Playground</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<main class="container">
+
+  <!-- Header -->
+  <header>
+    <h1>🔐 Password Hash Playground</h1>
+    <p>
+      <a href="?lang=uz">🇺🇿 UZ</a> |
+      <a href="?lang=en">🇬🇧 EN</a>
+    </p>
+  </header>
+
+  <!-- Form -->
+  <form method="post" class="card form-card">
+    <input type="password" name="password" placeholder="{{ lang_text.password_placeholder }}" required>
+    <select name="hasher" required>
+      <option value="">{{ lang_text.hasher_select }}</option>
+      {% for key, h in hashers.items() %}
+      <option value="{{ key }}">{{ h.name }}</option>
+      {% endfor %}
+    </select>
+    <button>{{ lang_text.hash_btn }}</button>
+  </form>
+
+  <!-- Error -->
+  {% if error %}
+  <div class="card error">{{ error }}</div>
+  {% endif %}
+
+  <!-- Hashed Password & Analytics -->
+  {% if result %}
+  <section class="grid">
+    <div class="card">
+      <h3>{{ lang_text.hashed_pass }}</h3>
+      <pre>{{ result }}</pre>
+    </div>
+
+    <div class="card">
+      <h3>{{ lang_text.analytics }}</h3>
+      <p><b>{{ lang_text.hash_time }}:</b> {{ analytics.time }} ms</p>
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- Hasher Info -->
+  {% if info %}
+  <div class="card info">
+    <h3>{{ lang_text.hasher_info }}</h3>
+    <ul>
+      <li><b>{{ lang_text.name }}:</b> {{ info.name }}</li>
+      <li><b>{{ lang_text.year }}:</b> {{ info.year }}</li>
+      <li><b>{{ lang_text.author }}:</b> {{ info.author }}</li>
+      <li><b>{{ lang_text.standard }}:</b> {{ info.standard }}</li>
+      <li><b>{{ lang_text.purpose }}:</b> {{ info.purpose }}</li>
+      <li><b>{{ lang_text.when_use }}:</b> {{ info.when_use }}</li>
+      <li><b>{{ lang_text.when_not }}:</b> {{ info.when_not }}</li>
+      <li><b>{{ lang_text.security }}:</b> {{ info.security }}</li>
+      <li><b>{{ lang_text.status }}:</b> {{ info.status }}</li>
+    </ul>
+  </div>
+  {% endif %}
+
+</main>
+
+</body>
+</html>
